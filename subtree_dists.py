@@ -8,7 +8,7 @@ def dists_from_subtree_root(tree: dict[str, list[dict[...]]], dist: int = 0) -> 
 	"""Given a tree, sum edge lengths to each terminal node and return them"""
 	edgeweight = tree["distance"]
 	subtree = tree["branches"]
-	if len(subtree) == 2: # layers remaining
+	if len(subtree) > 0: # layers remaining
 		for sub in subtree:
 			for x in dists_from_subtree_root(sub, dist+edgeweight):
 				yield x
